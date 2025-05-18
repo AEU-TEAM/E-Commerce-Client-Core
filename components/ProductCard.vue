@@ -5,22 +5,45 @@
     rounded="xl"
     style="position: relative"
   >
-    <!-- Favorite Icon -->
-    <v-btn
-      icon
-      variant="text"
-      size="small"
-      class="favorite-btn"
-      @click="$emit('favorite')"
-    >
-      <v-icon size="20">{{ isFavorite ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
-    </v-btn>
+    <div>
+      <!-- Favorite Icon -->
+      <v-btn
+        icon
+        variant="text"
+        size="small"
+        class="favorite-btn"
+        @click="$emit('favorite')"
+      >
+        <v-icon size="25">{{ isFavorite ? 'mdi-heart text-warning' : 'mdi-heart-outline' }}</v-icon>
+      </v-btn>
+      <!-- Add to Cart -->
+      <v-btn
+        icon
+        variant="text"
+        size="small"
+        class="mdi-cart-btn"
+        @click="$emit('addToCart')"
+      >
+        <v-icon size="25">mdi-cart-outline</v-icon>
+      </v-btn>
+  
+      <!-- View Detail -->
+      <v-btn
+        icon
+        variant="text"
+        size="small"
+        class="mdi-eye-btn"
+        @click="$emit('viewDetail')"
+      >
+        <v-icon size="25">mdi-eye-outline</v-icon>
+      </v-btn>
+    </div>
 
     <!-- Product Image -->
     <v-img
       :src="image"
       aspect-ratio="1"
-      width="100%"
+      width="90%"
       class="mb-4"
       cover
     />
@@ -71,7 +94,19 @@ defineEmits(['buy', 'favorite'])
 .favorite-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 5px;
+  z-index: 1;
+}
+.mdi-cart-btn {
+  position: absolute;
+  top: 50px;
+  right: 5px;
+  z-index: 1;
+}
+.mdi-eye-btn {
+  position: absolute;
+  top: 90px;
+  right: 5px;
   z-index: 1;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat app class="custom-app-bar bg-black">
+  <v-app-bar flat app class="custom-app-bar bg-black position-fixed">
     <v-container fluid>
       <v-row align="center">
         <v-col cols="auto">

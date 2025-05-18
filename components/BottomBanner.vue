@@ -29,6 +29,7 @@
   <style scoped>
   .banner {
     background-image: url("/images/BannerBottom.png");
+    width: 100%;
     background-size: cover;
     color: white;
     padding: 80px 0; /* Adjust padding as needed */

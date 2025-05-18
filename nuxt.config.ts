@@ -1,5 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+// import { visualizer } from 'rollup-plugin-visualizer'
+import vuetify, {  } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -18,10 +18,21 @@ export default defineNuxtConfig({
     //...
   ],
   vite: {
-    vue: {
-      template: {
-        transformAssetUrls,
-      },
-    },
+    optimizeDeps: {
+      include: ['vuetify', 'vue', 'vue-router']
+    }
   },
+  nitro: {
+    prerender: {
+      ignore: [
+        '/about',
+        '/contact',
+        '/blog',
+        '/wishlist',
+        '/cart',
+        '/profile'
+      ]
+    }
+  }
 })
+
