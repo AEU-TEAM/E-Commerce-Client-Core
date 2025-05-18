@@ -20,19 +20,24 @@
       ref="scrollContainer" 
       class="d-flex justify-center overflow-x-auto hide-scrollbar"
     >
-      <v-card
-        v-for="(category, index) in categories"
-        :key="index"
-        class="d-flex flex-column align-center justify-center mx-2 flex-shrink-0"
-        height="120"
-        width="140"
-        color="#f2f2f2"
-        rounded="lg"
-        flat
-      >
-        <v-icon size="32" class="mb-2">{{ category.icon }}</v-icon>
-        <span class="text-body-2 font-weight-medium">{{ category.title }}</span>
-      </v-card>
+    <div v-for="(category, index) in categories">
+      <v-hover v-slot="{ isHovering, props }">
+        <v-card
+          v-bind="props"
+          :elevation="isHovering ? 8 : 2"
+          :class="{'hover-lift': isHovering}"
+          :key="index"
+          class="d-flex flex-column align-center justify-center mx-2 flex-shrink-0 transition-smooth cusor-pointer"
+          :style="{ width: '120px', height: '120px' }"
+          color="#f2f2f2"
+          rounded="lg"
+          flat
+        >
+          <v-icon size="32" class="mb-2">{{ category.icon }}</v-icon>
+          <span class="text-body-2 font-weight-medium">{{ category.title }}</span>
+        </v-card>
+      </v-hover>
+    </div>
     </div>
   </v-container>
 </template>
@@ -70,6 +75,15 @@ const scrollRight = () => {
 }
 .text-h6 {
   font-size: 24px;
+}
+.transition-smooth {
+  transition: all 0.3s ease;
+
+}
+.hover-lift {
+  transform: translateY(-8px) scale(1.02);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 </style>
 

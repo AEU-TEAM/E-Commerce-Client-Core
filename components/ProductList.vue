@@ -58,7 +58,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/iphone-14-pro-gold.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }
@@ -78,7 +78,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/productList2.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }
@@ -88,7 +88,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/airpods-max-silver.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }
@@ -108,7 +108,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/productList4.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }
@@ -128,7 +128,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/productList6.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }
@@ -148,7 +148,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/huawei-watch.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }
@@ -168,7 +168,7 @@
             name: "Apple iPhone 14 Pro Max 128GB Deep Purple",
             thumbnail: "/images/galaxy-fold.png",
             price: 900,
-            isFavorite: true,
+            isFavorite: false,
             variant: {
               name: "128GB Deep Purple"
             }

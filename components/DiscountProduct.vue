@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid class="py-12">
+    <v-container class="py-12">
       <h2 class="text-h5 font-weight-bold mb-8">Discounts up to -50%</h2>
   
       <v-row dense>
