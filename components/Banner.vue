@@ -19,6 +19,7 @@
               heigh="56"
               rounded="lg"
               size="large"
+              to="/shop"
             >
               Shop Now
             </v-btn>

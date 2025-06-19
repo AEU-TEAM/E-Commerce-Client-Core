@@ -1,7 +1,8 @@
 <template>
-  <v-app-bar flat app class="custom-app-bar bg-black position-fixed">
+  <v-app-bar flat class="custom-app-bar bg-black">
     <v-container fluid>
-      <v-row align="center">
+      <v-row align="center" no-gutters>
+        <!-- Logo Video -->
         <v-col cols="auto">
           <div class="video-wrapper">
             <video
@@ -9,31 +10,32 @@
               autoplay
               muted
               loop
-              playsinline
-            ></video>
+              playsinline></video>
           </div>
         </v-col>
 
+        <!-- Search Field (Desktop) -->
         <v-col cols="5" class="d-none d-md-flex">
           <v-text-field
             v-model="searchQuery"
             placeholder="Search"
+            prepend-inner-icon="mdi-magnify"
             single-line
             hide-details
-            prepend-inner-icon="mdi-magnify"
-            class="search-field"
-          ></v-text-field>
+            class="search-field" />
         </v-col>
 
-        <v-spacer></v-spacer>
+        <v-spacer />
 
-        <v-col cols="auto" class="d-none d-lg-flex">
-          <v-btn text to="/" class="nav-link">Home</v-btn>
-          <v-btn text to="/about" class="nav-link">About</v-btn>
-          <v-btn text to="/contact" class="nav-link">Contact Us</v-btn>
-          <v-btn text to="/blog" class="nav-link">Blog</v-btn>
+        <!-- Desktop Navigation Links -->
+        <v-col cols="auto" class="d-none d-lg-flex nav-links">
+          <v-btn text to="/">Home</v-btn>
+          <v-btn text to="/about">About</v-btn>
+          <v-btn text to="/contact">Contact Us</v-btn>
+          <v-btn text to="/blog">Blog</v-btn>
         </v-col>
 
+        <!-- Icon Buttons -->
         <v-col cols="auto" class="d-flex align-center">
           <v-btn icon to="/wishlist" class="icon-button">
             <v-icon>mdi-heart-outline</v-icon>
@@ -44,8 +46,11 @@
           <v-btn icon to="/profile" class="icon-button ml-2">
             <v-icon>mdi-account-circle-outline</v-icon>
           </v-btn>
+          <v-btn text to="/register" class="icon-button ml-2">Register</v-btn>
+          <v-btn text to="/login" class="icon-button ml-2">Sign In</v-btn>
         </v-col>
 
+        <!-- Mobile Menu -->
         <v-col cols="auto" class="d-flex d-md-none">
           <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
@@ -54,28 +59,16 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item link to="/">
-                <v-list-item-title>Home</v-list-item-title>
-              </v-list-item>
-              <v-list-item link to="/about">
-                <v-list-item-title>About</v-list-item-title>
-              </v-list-item>
-              <v-list-item link to="/contact">
-                <v-list-item-title>Contact Us</v-list-item-title>
-              </v-list-item>
-              <v-list-item link to="/blog">
-                <v-list-item-title>Blog</v-list-item-title>
-              </v-list-item>
-              <v-divider></v-divider>
-              <v-list-item link to="/wishlist">
-                <v-list-item-title>Wishlist</v-list-item-title>
-              </v-list-item>
-              <v-list-item link to="/cart">
-                <v-list-item-title>Cart</v-list-item-title>
-              </v-list-item>
-              <v-list-item link to="/profile">
-                <v-list-item-title>Profile</v-list-item-title>
-              </v-list-item>
+              <v-list-item link to="/" title="Home" />
+              <v-list-item link to="/about" title="About" />
+              <v-list-item link to="/contact" title="Contact Us" />
+              <v-list-item link to="/blog" title="Blog" />
+              <v-divider />
+              <v-list-item link to="/wishlist" title="Wishlist" />
+              <v-list-item link to="/cart" title="Cart" />
+              <v-list-item link to="/register" title="Register" />
+              <v-list-item link to="/signIn" title="Sign In" />
+              <v-list-item link to="/profile" title="Profile" />
             </v-list>
           </v-menu>
         </v-col>
@@ -86,9 +79,10 @@
 
 <script>
 export default {
+  name: "AppNavBar",
   data() {
     return {
-      searchQuery: '',
+      searchQuery: "",
     };
   },
 };
@@ -96,39 +90,37 @@ export default {
 
 <style scoped>
 .custom-app-bar {
-  height: 65px; /* Set custom height */
-  min-height: 65px; /* Important for Vuetify internal styles */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  min-height: 65px;
+  z-index: 10;
 }
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+
+.video-wrapper {
+  width: 200px;
+  height: 120sspx;
+  overflow: hidden;
+  padding: 0;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .search-field {
-  max-width: 200px; /* Adjust as needed */
+  max-width: 300px;
+  width: 100%;
 }
 
-.nav-link {
+.nav-links > .v-btn {
   margin-left: 1rem;
 }
 
 .icon-button {
-  min-width: auto; /* Prevent icon buttons from being too wide */
-}
-.video-wrapper {
-  width: 300px; /* container size */
-  height: 100px; /* container size */
-  overflow: hidden; /* hide anything outside */
-  position: relative;
-  padding: 10px;
-}
-
-.video-wrapper video {
-  width:200px;
-  height: 200px;
-  position: relative;
-  top:55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  min-width: auto;
 }
 </style>
