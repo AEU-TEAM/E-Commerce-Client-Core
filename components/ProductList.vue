@@ -44,6 +44,7 @@
   </v-card>
 </template>
 <script>
+  import { useProductStore } from "@/stores/productStore.ts";
   export default {
     data() {
       return {
