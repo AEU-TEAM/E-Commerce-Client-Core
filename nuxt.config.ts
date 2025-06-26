@@ -5,19 +5,17 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["vuetify/styles"],
   components: true,
-  //...
   build: {
     transpile: ["vuetify"],
   },
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
-        // @ts-expect-error
+        config.plugins = config.plugins || [];
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
     "@pinia/nuxt",
-    //...
   ],
   vite: {
     optimizeDeps: {
