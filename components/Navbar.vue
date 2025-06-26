@@ -38,9 +38,15 @@
         <!-- Icon Buttons -->
         <v-col cols="auto" class="d-flex align-center">
           <v-btn icon to="/wishlist" class="icon-button">
+            <v-badge :content="productStore.getTotalWishlist" color="red">
+              <v-icon icon="$vuetify" size="x-large"></v-icon>
+            </v-badge>
             <v-icon>mdi-heart-outline</v-icon>
           </v-btn>
           <v-btn icon to="/cart" class="icon-button ml-2">
+            <v-badge :content="productStore.getTotalCart" color="red">
+              <v-icon icon="$vuetify" size="x-large"></v-icon>
+            </v-badge>
             <v-icon>mdi-cart-outline</v-icon>
           </v-btn>
           <v-btn icon to="/profile" class="icon-button ml-2">
@@ -76,16 +82,15 @@
     </v-container>
   </v-app-bar>
 </template>
-
-<script>
-export default {
-  name: "AppNavBar",
-  data() {
-    return {
-      searchQuery: "",
-    };
-  },
-};
+<script setup>
+import { useProductStore } from "@/stores/productStore.ts";
+import { ref, onMounted } from "vue";
+const productStore = useProductStore();
+const searchQuery = ref("");
+onMounted(() => {
+  // Initialize or fetch any necessary data here
+  productStore.loadWishlist();
+});
 </script>
 
 <style scoped>
