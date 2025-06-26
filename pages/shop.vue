@@ -92,8 +92,8 @@
               @buy="buyNow(product)"
               @favorite="toggleFavorite"
               @viewDetail="viewDetail(product)"
-              @addToCart="addToCart(product)"
-              @addToWishlist="addToWishlist(product)" />
+              @addToCart="productStore.addToCart(product)"
+              @addToWishlist="productStore.toggleFavorite(product.id)" />
           </v-col>
 
           <!-- No results -->
@@ -116,12 +116,14 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "@/stores/productStore.ts";
 
+const productStore = useProductStore();
 const router = useRouter();
+
 const categories = ["Electronics", "Fashion", "Home"];
 const brands = ["Sony", "Apple", "Nike", "Adidas", "Philips"];
 const shops = ["Shop A", "Shop B", "Shop C", "Shop D", "Shop E", "Shop F"];
 const branches = ["Phnom Penh", "Siem Reap", "Battambang"];
-const productStore = useProductStore();
+
 const products = ref(productStore.productsShop || []);
 const minPrice = Math.floor(Math.min(...products.value.map((p) => p.price)));
 const maxPrice = Math.ceil(Math.max(...products.value.map((p) => p.price)));
@@ -156,13 +158,8 @@ function buyNow(product) {
   alert(`Buying "${product.name}" now!`);
 }
 
-function addToWishlist(product) {
-  alert(`Added "${product.name}" to wishlist!`);
-}
-
-function viewDetail(product) {
-  productStore.setProduct(product);
-  console.log(productStore.selectedProduct)
+async function viewDetail(product) {
+  await productStore.setProduct(product);
   router.push(`/product/${product.id}`);
 }
 

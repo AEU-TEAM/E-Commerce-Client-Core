@@ -12,7 +12,7 @@
         variant="text"
         size="small"
         class="favorite-btn"
-        @click="$emit('favorite')"
+        @click="$emit('addToWishlist')"
       >
         <v-icon size="25">{{ isFavorite ? 'mdi-heart text-warning' : 'mdi-heart-outline' }}</v-icon>
       </v-btn>
@@ -24,7 +24,7 @@
         class="mdi-cart-btn"
         @click="$emit('addToCart')"
       >
-        <v-icon size="25">mdi-cart-outline</v-icon>
+        <v-icon :class="isInCart? `text-warning` : `text-black`" size="25">mdi-cart-outline</v-icon>
       </v-btn>
   
       <!-- View Detail -->
@@ -75,7 +75,8 @@ defineProps({
   title: { type: String, required: true },
   price: { type: [Number, String], required: true },
   buttonLabel: { type: String, default: 'Buy Now' },
-  isFavorite: { type: Boolean, default: false }
+  isFavorite: { type: Boolean, default: false },
+  isInCart: { type: Boolean, default: false },
 })
 
 defineEmits(['buy', 'favorite'])
