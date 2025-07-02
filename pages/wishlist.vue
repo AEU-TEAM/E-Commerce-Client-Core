@@ -24,7 +24,7 @@
                   ${{ item.price }}
                 </span>
                 <v-btn icon @click="userProductStore.toggleFavorite(item.id)">
-                  <v-icon color="red">mdi-heart</v-icon>
+                  <v-icon color="warning">mdi-heart</v-icon>
                 </v-btn>
               </div>
             </v-card-text>
