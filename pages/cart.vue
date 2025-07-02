@@ -100,9 +100,12 @@ import { ref, computed } from "vue";
 // Update the import path below if your productStore file is in a different location
 import { useProductStore } from "../stores/productStore";
 import type { CartInterface } from "@/types/productCard";
+import { useRouter } from "vue-router";
 
 const userProductStore = useProductStore();
 const cart = ref<CartInterface[]>(userProductStore.getCartList);
+const router = useRouter();
+
 
 // 💳 Coupon logic
 const couponCode = ref("");
@@ -150,6 +153,6 @@ function remove(id: number) {
 }
 
 function checkout() {
-  alert("Proceeding to checkout...");
+  router.push('/checkout/address');
 }
 </script>
