@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Navbar/>
+    <Navbar />
     <v-main class="bg-grey-lighten-4">
       <v-container class="py-12">
         <v-row justify="center" class="mb-12">
@@ -134,6 +134,8 @@
                     <v-tab value="paypal-credit" class="text-capitalize"
                       >PayPal Credit</v-tab
                     >
+                    <v-tab value="cod" class="text-capitalize">Case On Delivery</v-tab
+                    >
                   </v-tabs>
 
                   <v-window v-model="paymentTab">
@@ -235,6 +237,14 @@
                         PayPal Credit integration would go here.
                       </div>
                     </v-window-item>
+                    <v-window-item value="cod">
+                      <div class="text-center py-10 text-grey-darken-1">
+                        <v-select
+                          items="items"
+                          density="compact"
+                          label="Compact"></v-select>
+                      </div>
+                    </v-window-item>
                   </v-window>
 
                   <v-divider class="my-6"></v-divider>
@@ -263,12 +273,12 @@
         </v-row>
       </v-container>
     </v-main>
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 
 <script setup>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -426,8 +436,7 @@ const processPayment = async () => {
   alert("Payment successful! Your order has been placed.");
 
   // After successful payment, redirect to an order confirmation page
-    router.push("/checkout/order-confirmation"); // Navigate back to the shipping page
-
+  router.push("/checkout/order-confirmation"); // Navigate back to the shipping page
 };
 </script>
 

@@ -10,7 +10,7 @@
         <BottomBanner/>
         <Footer/>
     </v-app>
-  </template>
+</template>
   
   
   
